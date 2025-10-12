@@ -1,4 +1,4 @@
-# project utexas robots
+# project merely players
 
 - [overview](#overview)
   - [main](#main)
@@ -7,7 +7,11 @@
   - [setup](#setup)
   - [usage](#usage)
 
-robots in the utexas folder are a 'simple as possible' minimalist skeleton. the concept is that descendant code can spin off and explore various other directions. for example it's natural to picture bringing in some machine learning, but this should be in a separate 'dedicated repo' project because it's something beyond 'absolutely essential'. another example is usage with decwar variants where the idea is to spin off a dedicated repo, make the minimalist skeleton go, and then extend with nice stuff only possible with the variant.  
+there are two very different aspects to the decwar 'merely players'. the ability to play decwar and the skill level at that, so the 'brains'. and the character and personality, so the 'humanity'. right now the second of those seems much more fun and important. the focus has shifted away from adding brains and towards growing the humanity. that's probably why decwar is still alive after fifty years. not so much the gameplay or tech. it's the excitement, drama, and mystery. the robots are the answer for bringing those back to life. the game is what it is, and in the project utexas context is purposely regressing and going backwards to its roots. it's simply the darkened and empty theater stage. the robots are the actors coming on stage to perform and bring the play to life.
+
+right now the path forward is to bring back the 'sounds' of playing. especially the sounds of a friday afternoon in the southwest texas state university computation center, san marcos texas, summer 1983. a rowdy decwar battle before everyone heads out for swimming and tubing on the san marcos river. the idea is to capture the laughter and background chatter along with the clatter of keyboards and hammering of teletypes. and connect those with solid personalities. here are some names. grady early. randy. the deacon.
+
+to get an idea of the 'spirit of things', it's not impossible to imagine decwar in a gunship video right alongside the breakfast club, blade runner, and miami vice. and war games and real genius, of course. the thing about gunship is that there's a special mix of fun, humour, nostalgia, and a peculiar seriousness and 'poetry'. something to keep in mind.
 
 # overview
 
