@@ -3,9 +3,9 @@ import signal
 import threading
 import pexpect
 from sshkeyboard import listen_keyboard, stop_listening
-from msc import cli
-from msc.brain import Brain
-from msc.definitions import ships
+from merely_players import cli
+from merely_players.brain import Brain
+from merely_players.definitions import ships
 
 class Robot:
 

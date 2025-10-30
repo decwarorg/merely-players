@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "merely_players"
+version = "1.0"
+readme = "readme.md"
+requires-python = ">=3.9"
+dependencies = ["pexpect", "sshkeyboard"]
+
+[project.optional-dependencies]
