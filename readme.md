@@ -29,7 +29,7 @@ a brain object is effectively a 'ship in the game'. it knows how to give command
 
 ## setup
 
-in your utexas folder, have a venv python virtual environment. can create that with
+in your merely-players folder, have a venv python virtual environment. can create that with
 
     python -m venv venv
 
@@ -42,12 +42,19 @@ your bash prompt should now begin with (venv) showing it's active. within your v
     pip install pexpect
     pip install sshkeyboard
 
+you can also automatically get these by installing the python project via
+
+    pip install .
+
 ## usage
 
-with project utexas 'booted from disk' and running in a terminal, open other terminals and use the commands
+with project utexas 'booted from disk' and running in a terminal, open other terminals and start robots
 
-    python robots/main.py [captain's name]
-    bash robots/start-some-robots.sh &
+    python merely_players/robots/main.py -n [captain's name]
+
+or start groups of robots using the start-some-robots bash script
+
+    bash merely_players/start-some-robots.sh &
 
 to watch and shutdown
 

@@ -1,5 +1,5 @@
 # ------ help / usages infos -------------------------------------
-# bash robots/start-some-robots.sh &
+# bash merely_players/start-some-robots.sh &
 # tail -f log1
 # pkill -[signal # or name] -f python
 # 2  SIGINT  ctrlc   
@@ -7,23 +7,23 @@
 # -----------------------------------------------------------------
 
 rm log*
-python -u robots/main.py nomad > log1 &
+python -u merely_players/main.py -n nomad > log1 &
 sleep 2
-python -u robots/main.py robot2 > log2 &
+python -u merely_players/main.py -n robot2 > log2 &
 sleep 5
-python -u robots/main.py robot3 > log3 &
+python -u merely_players/main.py -n robot3 > log3 &
 sleep 5
-python -u robots/main.py robot4 > log4 &
+python -u merely_players/main.py -n robot4 > log4 &
 sleep 5
-python -u robots/main.py robot5 > log5 &
+python -u merely_players/main.py -n robot5 > log5 &
 sleep 5
-python -u robots/main.py robot6 > log6 &
+python -u merely_players/main.py -n robot6 > log6 &
 sleep 5
-python -u robots/main.py robot7 > log7 &
+python -u merely_players/main.py -n robot7 > log7 &
 sleep 5
-python -u robots/main.py robot8 > log8 &
+python -u merely_players/main.py -n robot8 > log8 &
 sleep 5
-python -u robots/main.py robot9 > log9 &
+python -u merely_players/main.py -n robot9 > log9 &
 sleep 5
-python -u robots/main.py robot10 > log10 &
+python -u merely_players/main.py -n robot10 > log10 &
 sleep 5
