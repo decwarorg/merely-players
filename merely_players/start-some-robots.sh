@@ -7,7 +7,7 @@
 # -----------------------------------------------------------------
 
 rm log*
-python -u merely_players/main.py -n nomad > log1 &
+python -u merely_players/main.py > log1 &
 sleep 2
 python -u merely_players/main.py -n robot2 > log2 &
 sleep 5

@@ -38,7 +38,7 @@ class Brain:
     def nomad(self):
         if self.age <= 2: self.command_and_response('*password *mink')
         self.speak()
-        # res = self.command_and_response('time')
+        res = self.command_and_response('time')
         # res = self.command_and_response('po a')
         self.galaxy.ships(self.command_and_response('list ships'))
         self.galaxy.bases(self.command_and_response('list bases'))
