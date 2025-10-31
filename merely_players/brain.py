@@ -91,6 +91,8 @@ class Brain:
             try: tmp += self.tc.read_nonblocking(3000, timeout=.2).decode('utf-8')
             except: pass
         tmp = tmp.replace('\x07', '')  # \x07 is \xhh hex for \a escape seq for ascii bell
+        for rec in tmp.strip().splitlines(): 
+            if rec: print(rec) # log raw messages
         tmp = tmp.strip().lower().splitlines()
         for line in tmp:
             newshipsignals = ['set prompt', 'set ocdef', 'set output', 'reading commands', 'runs out']
@@ -106,9 +108,8 @@ class Brain:
             for _ in range(2): self.tc.sendline(); self.tc.expect('>', timeout=10)
             self.tc.sendline(command)
             res = self.listen(4)
-            for rec in res:
-                if not rec: continue
-                print(f'{self.cnt}|{self.age}|{rec}')
+            # for rec in res:
+            #     if rec: print(f'{self.cnt}|{self.age}|{rec}') # log formatted and lowered messages
             return res
         except: print(f"cmd exception '{command}'")
 
