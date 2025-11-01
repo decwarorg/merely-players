@@ -4,6 +4,7 @@ from .definitions import robots, Mode
 from .enemy_bases import EnemyBases
 from .enemy_ships import EnemyShips
 from .galaxy import Galaxy
+from .planets import Planets
 
 class Brain:
 
@@ -15,10 +16,11 @@ class Brain:
         self.cnt = 0
         self.age = 0
         self.mode = Mode.defense
-        self.age_offense = 50
+        self.age_offense = 25
         self.enemybases = EnemyBases()
         self.enemyships = EnemyShips()
         self.galaxy = Galaxy()
+        self.planets = Planets()
 
     def next(self):
         self.backbrain()
@@ -38,26 +40,29 @@ class Brain:
     def nomad(self):
         if self.age <= 2: self.command_and_response('*password *mink')
         self.speak()
-        res = self.command_and_response('time')
-        # res = self.command_and_response('po a')
+        res = self.command_and_response('po a')
         self.galaxy.ships(self.command_and_response('list ships'))
         self.galaxy.bases(self.command_and_response('list bases'))
 
     def offense(self):
+        res = self.command_and_response('time')
         res = self.command_and_response('bases enemy')
         targ = self.enemybases.update(res)
-        if not targ[2]: self.explore()
-        else:
-            if targ[2] > 6: self.approach(targ)
-            else: self.attack(targ)
+        if not targ[2]:
+            res = self.command_and_response(f'li cl pl')
+            targ = self.planets.update(res)
+        if targ[2] > 6: self.approach(targ)
+        else: self.attack(targ)
             
     def defense(self):
+        res = self.command_and_response('time')
         res = self.command_and_response('list ships enemy')
         targ = self.enemyships.update(res)
-        if not targ[2]: self.explore()
-        else:
-            if targ[2] > 6: self.approach(targ)
-            else: self.attack(targ)
+        if not targ[2]:
+            res = self.command_and_response(f'li cl pl')
+            targ = self.planets.update(res)
+        if targ[2] > 6: self.approach(targ)
+        else: self.attack(targ)
 
     def speak(self):
         if True:
@@ -76,11 +81,6 @@ class Brain:
         tmp = random.uniform(0, 1)
         if tmp < .05: dv = 0; dh *= -1 # in case stuck
         elif tmp > .95: dh = 0; dv *= -1
-        res = self.command_and_response(f'm r {dv} {dh}')
-        res = self.command_and_response(f'sc')
-
-    def explore(self):
-        dv, dh = random.randint(-3, 3), random.randint(-3, 3)
         res = self.command_and_response(f'm r {dv} {dh}')
         res = self.command_and_response(f'sc')
 
