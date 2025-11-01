@@ -65,6 +65,9 @@ class Galaxy:
                 h = int(tmp3[1].strip())
                 self.galaxy['ships'].append({'position': {'v': v, 'h': h}, 'name': name, 'side': side})
             except: pass
+        return
+        
+    def write(self):
         fp = open('galaxy.json', 'w')
         json.dump(self.galaxy, fp)
         fp.flush()
