@@ -47,24 +47,28 @@ class Brain:
         self.galaxy.write()
 
     def offense(self):
+        mode = 'normal'
         res = self.command_and_response('time')
         res = self.command_and_response('bases enemy')
         targ = self.enemybases.update(res)
         if not targ[2]:
             res = self.command_and_response(f'li cl pl')
             targ = self.planets.update(res)
+            mode = 'torp'
         if targ[2] > 6: self.approach(targ)
-        else: self.attack(targ)
+        else: self.attack(targ, mode)
             
     def defense(self):
+        mode = 'normal'
         res = self.command_and_response('time')
         res = self.command_and_response('list ships enemy')
         targ = self.enemyships.update(res)
         if not targ[2]:
             res = self.command_and_response(f'li cl pl')
             targ = self.planets.update(res)
+            mode = 'torp'
         if targ[2] > 6: self.approach(targ)
-        else: self.attack(targ)
+        else: self.attack(targ, mode)
 
     def speak(self):
         if True:
@@ -73,9 +77,12 @@ class Brain:
         msg = random.choice(robots[self.name])
         res = self.command_and_response(f'tell all; {msg}')
 
-    def attack(self, targ):
-        res = self.command_and_response(f'ph r {targ[0]} {targ[1]}')
-        if random.uniform(0, 1) > .5: res = self.command_and_response(f'to r 1 {targ[0]} {targ[1]}')
+    def attack(self, targ, mode):
+        if mode == 'torp':
+            res = self.command_and_response(f'to r 3 {targ[0]} {targ[1]}')
+        else:
+            res = self.command_and_response(f'ph r {targ[0]} {targ[1]}')
+            if random.uniform(0, 1) > .5: res = self.command_and_response(f'to r 2 {targ[0]} {targ[1]}')
 
     def approach(self, targ):
         dv = 0 if targ[0] == 0 else int(3 * targ[0] / abs(targ[0]))

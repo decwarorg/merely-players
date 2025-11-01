@@ -13,7 +13,7 @@ class Planets:
         v = int(tmp3[0].strip())
         tmp4 = tmp3[1].split()
         h = int(tmp4[0].strip())
-        vhd = [[v, h, int(math.sqrt(v ** 2 + h ** 2))]]
+        vhd = [v, h, int(math.sqrt(v ** 2 + h ** 2))]
         return vhd
     
         

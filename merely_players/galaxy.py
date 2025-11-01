@@ -37,10 +37,11 @@ class Galaxy:
                 if '<>' in type: side = 'f'
                 elif ')(' in type: side = 'e'
                 else: continue
-                tmp2 = tmp[1].strip().split(' ')
-                tmp3 = tmp2[0].split('-')
+                tmp1, tmp2 = tmp[1][:5], tmp[1][5:]
+                tmp3 = tmp1.split('-')
                 v = int(tmp3[0].strip())
-                h = int(tmp3[1].strip())
+                tmp4 = tmp3[1].split()
+                h = int(tmp4[0].strip())
                 self.galaxy['bases'].append({'position': {'v': v, 'h': h}, 'side': side})
                 # print(f'bases ok {str(tmp)}') #debug
             except:
