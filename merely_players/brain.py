@@ -43,6 +43,7 @@ class Brain:
         res = self.command_and_response('po a')
         self.galaxy.ships(self.command_and_response('list ships'))
         self.galaxy.bases(self.command_and_response('list bases'))
+        self.galaxy.planets(self.command_and_response('list planets'))
 
     def offense(self):
         res = self.command_and_response('time')
