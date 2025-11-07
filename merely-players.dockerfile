@@ -3,10 +3,11 @@
 FROM ubuntu:22.04
 RUN apt-get update && apt-get install build-essential cmake telnet -y
 RUN apt-get install python3 python3-dev python3-pip python3-setuptools -y
-RUN pip install pexpect sshkeyboard fastapi[standard]
+RUN pip install pexpect sshkeyboard flask-restx
 
 ADD merely_players /merely_players
-ENV PYTHONPATH="${PYTHONPATH}:/merely_players"
+ADD pyproject.toml /pyproject.toml
 ADD log /log
+RUN pip install .
 
-CMD ["fastapi", "run", "merely_players/api.py", "--port", "2031"]
+CMD ["python3", "merely_players/api.py"]
