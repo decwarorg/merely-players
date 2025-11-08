@@ -4,7 +4,7 @@ import threading
 import pexpect
 from sshkeyboard import listen_keyboard, stop_listening
 from merely_players import cli
-from merely_players.brain import Brain
+from merely_players.robot.brain import Brain
 from merely_players.definitions import ships
 
 class Robot:

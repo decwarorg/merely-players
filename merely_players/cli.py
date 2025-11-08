@@ -3,7 +3,7 @@ import argparse
 def main():
     cli = argparse.ArgumentParser(description='robot')
     cli.add_argument('-n', '--name', default='nomad', type=str)
-    cli.add_argument('-i', '--ip', default='utexas', type=str)
+    cli.add_argument('-i', '--ip', default='localhost', type=str)
     cli.add_argument('-p', '--port', default=2030, type=int)
     cli.add_argument('-u', '--ppn', default='decwar', type=str)
     cli2 = cli.parse_args()

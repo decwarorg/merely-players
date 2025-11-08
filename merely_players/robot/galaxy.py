@@ -1,6 +1,6 @@
 import json
 import shutil
-from .definitions import fed, emp
+from merely_players.definitions import fed, emp
 
 class Galaxy:
     
@@ -73,6 +73,6 @@ class Galaxy:
         json.dump(self.galaxy, fp)
         fp.flush()
         fp.close()
-        try: shutil.copy('log/galaxy.json', '../galaxy/galaxy/galaxy.json')
-        except: pass
+        # try: shutil.copy('log/galaxy.json', '../galaxy/galaxy/galaxy.json')
+        # except: pass
     

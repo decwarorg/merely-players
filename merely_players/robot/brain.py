@@ -1,10 +1,10 @@
 import random
 import time
-from .definitions import robots, Mode
-from .enemy_bases import EnemyBases
-from .enemy_ships import EnemyShips
-from .galaxy import Galaxy
-from .planets import Planets
+from merely_players.definitions import robots, Mode
+from merely_players.robot.enemy_bases import EnemyBases
+from merely_players.robot.enemy_ships import EnemyShips
+from merely_players.robot.galaxy import Galaxy
+from merely_players.robot.planets import Planets
 
 class Brain:
 
