@@ -8,6 +8,9 @@ RUN pip install pexpect sshkeyboard flask-restx
 ADD merely_players /merely_players
 ADD pyproject.toml /pyproject.toml
 ADD data /data
-RUN pip install .
+RUN #pip install .
 
-CMD ["python3", "merely_players/api.py"]
+ENV PYTHONPATH="${PYTHONPATH}:/merely_players"
+ENV AM_I_IN_A_DOCKER_CONTAINER=Yes
+
+CMD ["python3", "merely_players/app.py"]
