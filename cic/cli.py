@@ -1,5 +1,5 @@
 import argparse
-from merely_players.utils import indocker
+from cic.utils import indocker
 
 ipstr = 'utexas' if indocker() else '0.0.0.0'
 

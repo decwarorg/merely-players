@@ -1,6 +1,6 @@
 import json
 from flask_restx import Namespace, Resource
-from merely_players.utils import pathroot
+from cic.utils import pathroot
 
 api = Namespace('galaxy')
 

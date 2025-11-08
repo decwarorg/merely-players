@@ -1,2 +1,2 @@
 
- merely-players % python merely_players/app.py
+ merely-players % python cic/app.py

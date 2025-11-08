@@ -50,11 +50,11 @@ you can also automatically get these by installing the python project via
 
 with project utexas 'booted from disk' and running in a terminal, open other terminals and start robots
 
-    python merely_players/robots/robot.py -n [captain's name]
+    python cic/robots/robot.py -n [captain's name]
 
 or start groups of robots using the start-some-robots bash script
 
-    bash merely_players/start-some-robots.sh &
+    bash cic/start-some-robots.sh &
 
 to watch and shutdown
 

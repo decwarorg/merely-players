@@ -1,6 +1,6 @@
 import json
 import shutil
-from merely_players.definitions import fed, emp
+from cic.definitions import fed, emp
 
 class Galaxy:
     
