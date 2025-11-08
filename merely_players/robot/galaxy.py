@@ -69,10 +69,10 @@ class Galaxy:
         return
         
     def write(self):
-        fp = open('log/galaxy.json', 'w')
+        fp = open('data/galaxy.json', 'w')
         json.dump(self.galaxy, fp)
         fp.flush()
         fp.close()
-        # try: shutil.copy('log/galaxy.json', '../galaxy/galaxy/galaxy.json')
+        # try: shutil.copy('data/galaxy.json', '../galaxy/galaxy/galaxy.json')
         # except: pass
     

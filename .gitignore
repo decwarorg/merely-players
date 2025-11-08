@@ -2,4 +2,4 @@
 build
 *egg-info
 
-log/log*
+data/log*

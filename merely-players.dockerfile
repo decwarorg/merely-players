@@ -7,7 +7,7 @@ RUN pip install pexpect sshkeyboard flask-restx
 
 ADD merely_players /merely_players
 ADD pyproject.toml /pyproject.toml
-ADD log /log
+ADD data /data
 RUN pip install .
 
 CMD ["python3", "merely_players/api.py"]
