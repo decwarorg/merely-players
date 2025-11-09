@@ -1,13 +1,17 @@
-# docker compose
-# docker compose down
-# docker compose pull
-# docker compose up
+"""
+WARNING this can do git reset on current repo (merely-players). caution needed if you're coding there.
+fix so docker doesn't need sudo https://docs.docker.com/engine/install/linux-postinstall/
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+docker run hello-world
+"""
 import os
 from cic.utils import pathroot
 
 os.chdir(pathroot())
 os.system('git fetch')
-os.system('git reset --hard origin')
+os.system('git reset --hard origin') # WARNING caution needed if you're coding
 os.system('docker build -t cic -f ./dockerfile-cic .')
 
 os.chdir(pathroot() + '/..')
@@ -23,8 +27,3 @@ os.chdir('utexas')
 os.system('git fetch')
 os.system('git reset --hard origin')
 os.system('docker build -t utexas -f ./dockerfile-utexas .')
-
-# for non docker compose
-# os.system('docker rm -f galaxy')
-# os.system('docker run -d -p 2032:2032 --name galaxy galaxy')
-
