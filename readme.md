@@ -62,3 +62,7 @@ to watch and shutdown
     pkill -2 -f python
     2 SIGINT     ctrlc
     20 SIGTSTP   ctrlz
+
+# versions
+
+- v1.0 20251109
