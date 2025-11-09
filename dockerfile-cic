@@ -8,7 +8,7 @@ RUN pip install pexpect sshkeyboard flask-restx flask-cors
 ADD cic /cic
 ADD pyproject.toml /pyproject.toml
 ADD data /data
-ADD docker /docker
+ADD msc /msc
 RUN #pip install .
 
 ENV PYTHONPATH="${PYTHONPATH}:/cic"
