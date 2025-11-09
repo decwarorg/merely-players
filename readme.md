@@ -1,11 +1,13 @@
 # project merely players
 
 - [overview](#overview)
-  - [main](#main)
+  - [robot](#robot)
   - [brain](#brain)
+  - [app](#app)
 - [guide](#guide)
-  - [setup](#setup)
-  - [usage](#usage)
+  - [python](#python)
+  - [docker compose](#docker-compose)
+- [versions](#versions)
 
 there are two very different aspects to the decwar 'merely players'. the ability to play decwar and the skill level at that, so the 'brains'. and the character and personality, so the 'humanity'. right now the second of those seems much more fun and important. the focus has shifted away from adding brains and towards growing the humanity. that's probably why decwar is still alive after fifty years. not so much the gameplay or tech. it's the excitement, drama, and mystery. the robots are the answer for bringing those back to life. the game is what it is, and in the project utexas context is purposely regressing and going backwards to its roots. it's simply the darkened and empty theater stage. the robots are the actors coming on stage to perform and bring the play to life.
 
@@ -17,7 +19,7 @@ to get an idea of the 'spirit of things', it's not impossible to imagine decwar 
 
 boring 'infrastructure' stuff is corralled into main. fun 'decwar specific' stuff begins with the brain. the brain kicks in and takes over once the decwar game command prompt is available, and only knows about giving decwar commands and reacting to decwar output.
 
-## main
+## robot
 
 the 'secret' here is that there's a child thread with a robot instance spinning slowly and handling telnet, tops10, and pregame topics. the main thread is meanwhile listening to the keyboard. the idea is that the main thread always has to ask and wait for the child thread to take any actions, hopefully in a calm, reasonable, clean way. for shutdown, the child should quit decwar, logout of tops10, and close the telnet connection, at which point finally both threads can exit.
 
@@ -25,43 +27,35 @@ the 'secret' here is that there's a child thread with a robot instance spinning 
 
 a brain object is effectively a 'ship in the game'. it knows how to give commands and handle the resulting output. on top of that, it adds basic concepts of 'what to do'. this is where things get interesting. without getting too complex and going beyond minimalist approaches, the tougher, longer surviving, and harder to beat the robots can become, the better. 
 
+## app
+
+this is the 'cic' rest api that is started up as a background service. it's purpose is to output information to clients such a the glaxy display, and to act as centralized control for the robots and for the game.
+
 # guide
 
-## setup
+this is a python and docker project, and both are assumed to be installed. the details of getting to that point are fairly os dependent and beyond the scope here. basically, anyone interested enough to get to this point right here probably knows how to have python and docker ready for action.
 
-in your merely-players folder, have a venv python virtual environment. can create that with
+## python
 
-    python -m venv venv
+this is a python project and it's used wherever possible. the project should work as smoothly as possible on linux, windows, and mac. python virtual environments should only be needed for running and working on the code locally. for docker containers virtual environments shouldn't be an issue since containers are themselves 'virtual environments'. this guide will bypass local non container 'dev mode' runs and focus on high level dockerized ops. dev mode can be addressed in dedicated docs.
 
-have your bash shell set to use your venv
+## docker compose
 
-    source venv/bin/activate
+the objective here is a simple push button 'turn key and go' way to run the primordial utexas decwar and have as much fun as possible. that means a pdp10-kl simulator running all of the original sofware from tape images, and able to build decwar on the fly at every boot with modifications to the original fortran and mac10 flowing in smoothly. to really have fun there have to be other players. the more the better. robots have to be telnetting in and playing. that's done with python. and then, even more fun, is a graphical display of the whole galaxy. ideally with sounds as well. that's done via webbrowser using p5js javascript. here's where things are at the moment.
 
-your bash prompt should now begin with (venv) showing it's active. within your venv, have pip installed pexpect and sshkeyboard
+    https://gitlab.com/decwar/utexas - pure stone age
+    https://gitlab.com/decwar/merely-players - pure python robots and 'cic' api
+    https://gitlab.com/decwar/galaxy - pure p5js display calling 'cic' api
 
-    pip install pexpect
-    pip install sshkeyboard
+how to unify these three forces? doco. [docker compose](https://docs.docker.com/compose/)
 
-you can also automatically get these by installing the python project via
+the project push button concept is that doco is the unifier, controller, automator, and interface for casual play. everything should be reduced as much as possible to a matter of doco usage. of course in reality there will always be more frictions and bumps to smooth out. this is not a simple system, and on top of the three forces shown above, doco is effectively a fourth force. why all the complexity.
 
-    pip install .
+for one thing, the system should transparently move across intel, amd, arm, cloud, not to mention future hardware. and the usual software permutations of linux, windows, mac. in particular, at the moment the system is being used on a raspi and a macbook. the only thing the two have in common is the three gitlab repos. doco is available on both and used to run the game. it's now standard to have two simultaneous decwar games going on with ten robot players in each. one on the raspi, the other on the macbook.
 
-## usage
+for another thing, keeping all the forces separate is better for advancing and maintaining the code. stone age, python, and p5js are completely different planets, if not even different galaxies. there's effectively zero overlap between the three, and zero need to know about the details within the other two in order to work on one. someone interested in the original fortran and assembly language can put all their effort into the utexas repo. another person interested in visual displays can put all their effort into the galaxy repo.
 
-with project utexas 'booted from disk' and running in a terminal, open other terminals and start robots
-
-    python cic/robots/robot.py -n [captain's name]
-
-or start groups of robots using the start-some-robots bash script
-
-    bash cic/start-some-robots.sh &
-
-to watch and shutdown
-
-    tail -f log1
-    pkill -2 -f python
-    2 SIGINT     ctrlc
-    20 SIGTSTP   ctrlz
+and there's actually some simplification. in the 2000s getting new software meant download installer, install, run. now it can be as simple as download container, run. that's the ideal to work towards.
 
 # versions
 
