@@ -9,6 +9,6 @@ api = Namespace('cic')
 class CIC(Resource):
     def get(self):
         headers = {'Content-Type': 'text/html'}
-        message = "howdy"
+        message = "apis/cic.py get on root"
         return make_response(render_template('cic.html', message=message), 200, headers)
     
