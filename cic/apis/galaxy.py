@@ -10,3 +10,4 @@ class Galaxy(Resource):
         path = pathroot() + '/data/galaxy.json'
         galaxy = json.load(open(path))
         return galaxy
+    
