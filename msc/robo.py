@@ -1,4 +1,5 @@
 """
+docker compose exec cic sh
 useful commands when robots are running
 tail -f log1
 pkill -[signal # or name] -f python
