@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <title>cic</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <script src="{{ url_for('static', filename='js/index.js') }}" type="module"></script>
 </head>
-
 <body>
-<p></p>
-<p></p>
-<p>
-  {{message}}
-  {% include "_test.html" %}
-</p>
+<p>cic control panel for utexas decwar and robots</p>
+<div class="galaxy-card">
+  <form class="galaxy-form">
+    <input type="text" name="endpoint" value="/galaxy"/>
+    <button data-action="read">Get Data</button>
+    <button data-action="clear">Clear</button>
+  </form>
+  <pre>
+    <code></code>
+  </pre>
+</div>
 </body>
-
 </html>

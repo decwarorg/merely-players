@@ -1,11 +1,11 @@
 
-import { TestForm } from "./test.js";
+import { GalaxyForm } from "./galaxy.js";
 
 function main() {
 
-  if (document.querySelector(".test-card")) {
-    const test = new TestForm();
-    test.showResponse("");
+  if (document.querySelector(".galaxy-card")) {
+    const galaxy = new GalaxyForm();
+    galaxy.showResponse("");
   }
 
 }

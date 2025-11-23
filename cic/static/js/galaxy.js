@@ -1,10 +1,10 @@
 
 import { getData } from "./request.js";
 
-export class TestForm {
+export class GalaxyForm {
   constructor() {
-    this.testCard = document.querySelector(".test-card");
-    this.form = this.testCard.querySelector(".test-form");
+    this.galaxyCard = document.querySelector(".galaxy-card");
+    this.form = this.galaxyCard.querySelector(".galaxy-form");
     this.clearButton = this.form.querySelector("button[data-action='clear']");
     this.clearButton.addEventListener(
       "click",
@@ -16,20 +16,20 @@ export class TestForm {
 
   handleClearClick(event) {
     event.preventDefault();
-    let code = this.testCard.querySelector("code");
+    let code = this.galaxyCard.querySelector("code");
     code.innerText = "";
   }
 
   handleSendClick(event) {
     event.preventDefault();
-    const input = document.querySelector(".test-card input");
+    const input = document.querySelector(".galaxy-card input");
     const endpoint = input.value;
     getData(endpoint, this.showResponse);
   }
 
   showResponse(data) {
-    const testCard = document.querySelector(".test-card");
-    let code = testCard.querySelector("code");
+    const galaxyCard = document.querySelector(".galaxy-card");
+    let code = galaxyCard.querySelector("code");
     code.innerText = data;
   }
 }
