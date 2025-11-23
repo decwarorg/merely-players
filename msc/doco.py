@@ -16,7 +16,8 @@ os.chdir(pathroot())
 # os.system('git fetch')
 # os.system('git reset --hard origin') # WARNING caution needed if you're coding in the repo
 # os.system('docker rm -f cic') # for now, usually do manually
-os.system('docker build -t cic -f ./dockerfile-cic .')
+# os.system('docker image rm cic') # for now, usually do manually
+os.system('docker build --check -t cic -f ./dockerfile-cic .') # --check is crucial right noe
 
 os.chdir(pathroot() + '/..')
 if not os.path.exists('galaxy'): os.system('git clone https://gitlab.com/decwar/galaxy.git')

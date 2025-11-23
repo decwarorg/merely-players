@@ -1,3 +1,8 @@
+# syntax=docker/dockerfile:1
+# check=skip=all
+# above is crucial fix for latest docker 20251123
+# build has to be 'docker build --check -t cic -f ./dockerfile-cic .'
+
 # couldn't get telnet onto python image, but can do with ubuntu
 # ubuntu 24.04 brings all kinds of pain around pip
 FROM ubuntu:22.04
@@ -9,9 +14,7 @@ ADD cic /cic
 ADD pyproject.toml /pyproject.toml
 ADD data /data
 ADD msc /msc
-RUN #pip install .
 
 ENV PYTHONPATH="${PYTHONPATH}:/cic"
-ENV AM_I_IN_A_DOCKER_CONTAINER=Yes
 
 CMD ["python3", "cic/app.py"]
