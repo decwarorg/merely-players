@@ -1,4 +1,6 @@
 
+import { getData } from "./request.js";
+
 export class RobotsForm {
   constructor() {
     this.robotsCard = document.querySelector(".robots-card");
@@ -11,14 +13,14 @@ export class RobotsForm {
 
   handleStartClick(event) {
     event.preventDefault();
-    let code = this.robotsCard.querySelector("code");
-    code.innerText = "started";
+    const endpoint = "/robots/start";
+    getData(endpoint, this.showResponse);
   }
   
   handleStopClick(event) {
     event.preventDefault();
-    let code = this.robotsCard.querySelector("code");
-    code.innerText = "stopped";
+    const endpoint = "/robots/stop";
+    getData(endpoint, this.showResponse);
   }
 
   showResponse(data) {

@@ -8,6 +8,10 @@ open another terminal and connect to the cic container with 'docker compose exec
 in the cic container do 'python3 msc/robo.py' to start the robots
 open another terminal and do 'telnet localhost 2030'
 open a web browser to 'localhost:2031' for galaxy display
+
+docker rm -f utexas cic galaxy
+docker image rm utexas cic galaxy
+python3 prep.py
 """
 import os
 from cic.utils import pathroot
@@ -15,16 +19,13 @@ from cic.utils import pathroot
 os.chdir(pathroot())
 # os.system('git fetch')
 # os.system('git reset --hard origin') # WARNING caution needed if you're coding in the repo
-# os.system('docker rm -f cic') # for now, usually do manually
-# os.system('docker image rm cic') # for now, usually do manually
-os.system('docker build --check -t cic -f ./dockerfile-cic .') # --check is crucial right noe
+os.system('docker build -t cic -f ./dockerfile-cic .') # --check is crucial right noe
 
 os.chdir(pathroot() + '/..')
 if not os.path.exists('galaxy'): os.system('git clone https://gitlab.com/decwar/galaxy.git')
 os.chdir('galaxy')
 os.system('git fetch')
 os.system('git reset --hard origin') # WARNING caution needed if you're coding in the repo
-# os.system('docker rm -f galaxy') # for now, usually do manually
 os.system('docker build -t galaxy -f ./dockerfile-galaxy .')
 
 os.chdir(pathroot() + '/..')
@@ -37,7 +38,6 @@ if not os.path.exists('dsk'):
     os.system('unzip dsk-20251103.zip') # this will eventually be unnecessary
     os.system('mv dsk-20251103 dsk')
 os.chdir('..')
-# os.system('docker rm -f utexas') # for now, usually do manually
 os.system('docker build -t utexas -f ./dockerfile-utexas .')
 
 """

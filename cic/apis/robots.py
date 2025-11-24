@@ -1,16 +1,17 @@
-import json
 from flask_restx import Namespace, Resource
-from cic.utils import pathroot
+import cic.robot.runner as runner
 
 api = Namespace('robots')
 
 @api.route('/start')
-class GalaxyStart(Resource):
+class RobotsStart(Resource):
     def get(self):
+        runner.start()
         return 'started'
     
 @api.route('/stop')
-class GalaxyStop(Resource):
+class RobotsStop(Resource):
     def get(self):
+        runner.stop()
         return 'stopped'
     
