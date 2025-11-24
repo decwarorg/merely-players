@@ -7,3 +7,6 @@ api.add_namespace(galaxy)
 
 from cic.apis.cic import api as cic
 api.add_namespace(cic)
+
+from cic.apis.robots import api as robots
+api.add_namespace(robots)
