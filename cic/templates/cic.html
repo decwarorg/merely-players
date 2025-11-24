@@ -7,16 +7,25 @@
   <script src="{{ url_for('static', filename='js/index.js') }}" type="module"></script>
 </head>
 <body>
-<p>cic control panel for utexas decwar and robots</p>
+
+<p>galaxy card</p>
 <div class="galaxy-card">
   <form class="galaxy-form">
     <input type="text" name="endpoint" value="/galaxy"/>
-    <button data-action="read">Get Data</button>
-    <button data-action="clear">Clear</button>
+    <button data-action="read">get data</button>
+    <button data-action="clear">clear</button>
   </form>
-  <pre>
-    <code></code>
-  </pre>
+  <pre><code></code></pre>
 </div>
+
+<p>robots card</p>
+<div class="robots-card">
+  <form class="robots-form">
+    <button data-action="start">start</button>
+    <button data-action="stop">stop</button>
+  </form>
+  <pre><code></code></pre>
+</div>
+
 </body>
 </html>

@@ -6,10 +6,7 @@ export class GalaxyForm {
     this.galaxyCard = document.querySelector(".galaxy-card");
     this.form = this.galaxyCard.querySelector(".galaxy-form");
     this.clearButton = this.form.querySelector("button[data-action='clear']");
-    this.clearButton.addEventListener(
-      "click",
-      this.handleClearClick.bind(this)
-    );
+    this.clearButton.addEventListener("click", this.handleClearClick.bind(this));
     this.sendButton = this.form.querySelector("button[data-action='read']");
     this.sendButton.addEventListener("click", this.handleSendClick.bind(this));
   }
