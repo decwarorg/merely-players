@@ -1,5 +1,6 @@
 # project merely players
 
+- [basics](#basics)
 - [overview](#overview)
   - [robot](#robot)
   - [brain](#brain)
@@ -9,13 +10,26 @@
   - [docker compose](#docker-compose)
 - [versions](#versions)
 
+# basics
+
+cd into the merely-players folder. the first command below removes the three docker images so they will be fully rebuilt by the second command. in practice, often only one of the images is changing and needs to be removed. the third command then starts the complete system.
+
+    docker image rm utexas cic galaxy
+    python prep.py
+    docker compose up
+
+once the utexas container has reached 'GAM assigned', the dec10 is ready.
+open a web browser to 'localhost:2031/cic' for control over the robots. hit the start robots button.
+open a web browser to 'localhost:2032' for galaxy display. 
+open terminal and do 'telnet localhost 2030' to personally enter the game
+
+# overview
+
 there are two very different aspects to the decwar 'merely players'. the ability to play decwar and the skill level at that, so the 'brains'. and the character and personality, so the 'humanity'. right now the second of those seems much more fun and important. the focus has shifted away from adding brains and towards growing the humanity. that's probably why decwar is still alive after fifty years. not so much the gameplay or tech. it's the excitement, drama, and mystery. the robots are the answer for bringing those back to life. the game is what it is, and in the project utexas context is purposely regressing and going backwards to its roots. it's simply the darkened and empty theater stage. the robots are the actors coming on stage to perform and bring the play to life.
 
 right now the path forward is to bring back the 'sounds' of playing. especially the sounds of a friday afternoon in the southwest texas state university computation center, san marcos texas, summer 1983. a rowdy decwar battle before everyone heads out for swimming and tubing on the san marcos river. the idea is to capture the laughter and background chatter along with the clatter of keyboards and hammering of teletypes. and connect those with solid personalities. here are some names. grady early. randy. the deacon.
 
 to get an idea of the 'spirit of things', it's not impossible to imagine decwar in a gunship video right alongside the breakfast club, blade runner, and miami vice. and war games and real genius, of course. the thing about gunship is that there's a special mix of fun, humour, nostalgia, and a peculiar seriousness and 'poetry'. something to keep in mind.
-
-# overview
 
 boring 'infrastructure' stuff is corralled into main. fun 'decwar specific' stuff begins with the brain. the brain kicks in and takes over once the decwar game command prompt is available, and only knows about giving decwar commands and reacting to decwar output.
 
