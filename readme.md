@@ -19,9 +19,14 @@ cd into the merely-players folder. the first command below removes the three doc
     docker compose up
 
 once the utexas container has reached 'GAM assigned', the dec10 is ready.
-open a web browser to 'localhost:2031/cic' for control over the robots. hit the start robots button.
-open a web browser to 'localhost:2032' for galaxy display. 
-open terminal and do 'telnet localhost 2030' to personally enter the game
+- open a web browser to 'localhost:2031/cic' for control over the robots. hit the start robots button.
+- open a web browser to 'localhost:2032' for galaxy display. 
+- open a terminal and do 'telnet localhost 2030' to personally enter the game
+
+some useful command lines for cic container, and the same can easily be accomplished in docker desktop gui as well.
+
+    docker compose exec cic /bin/bash
+    tail -f /data/log1
 
 # overview
 

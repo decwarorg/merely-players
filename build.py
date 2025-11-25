@@ -1,3 +1,14 @@
+"""
+python3 build.py
+  -p --pull updates utexas and galaxy repos using 'git reset --hard origin'
+docker commands
+  docker image rm cic utexas galaxy
+  docker compose up
+  docker compose exec cic /bin/bash
+  docker compose down
+within a cic container /bin/bash shell
+  tail -f /data/log1
+"""
 import os
 import argparse
 from cic.utils import pathroot
