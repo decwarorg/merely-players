@@ -13,14 +13,14 @@ export class RobotsForm {
 
   handleStartClick(event) {
     event.preventDefault();
-    const endpoint = "/robots/start";
-    getData(endpoint, this.showResponse);
+    this.showResponse("starting")
+    getData("/robots/start", this.showResponse);
   }
   
   handleStopClick(event) {
     event.preventDefault();
-    const endpoint = "/robots/stop";
-    getData(endpoint, this.showResponse);
+    this.showResponse("stopping")
+    getData("/robots/stop", this.showResponse);
   }
 
   showResponse(data) {
