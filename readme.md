@@ -15,7 +15,7 @@
 cd into the merely-players folder. the first command below removes the three docker images so they will be fully rebuilt by the second command. in practice, often only one of the images is changing and needs to be removed. the third command then starts the complete system.
 
     docker image rm utexas cic galaxy
-    python prep.py
+    python3 prep.py
     docker compose up
 
 once the utexas container has reached 'GAM assigned', the dec10 is ready.
