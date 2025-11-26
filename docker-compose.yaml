@@ -1,14 +1,17 @@
 name: decwar
 services:
   utexas:
+    build: ../utexas
     image: utexas
     ports:
       - "2030:2030"
   cic:
+    build: ./
     image: cic
     ports:
       - "2031:2031"
   galaxy:
+    build: ../galaxy
     image: galaxy
     ports:
       - "2032:2032"

@@ -1,6 +1,6 @@
 # project merely players
 
-- [basics](#basics)
+- [push button](#push-button)
 - [overview](#overview)
   - [robot](#robot)
   - [brain](#brain)
@@ -10,23 +10,18 @@
   - [docker compose](#docker-compose)
 - [versions](#versions)
 
-# basics
+# push button
 
-cd into the merely-players folder. the first command below removes the three docker images so they will be fully rebuilt by the second command. in practice, often only one of the images is changing and needs to be removed. the third command then starts the complete system.
+have the merely-players repo in a folder where utexas and galaxy repos will also live. cd into merely-players and do
 
-    docker image rm utexas cic galaxy
-    python3 build.py
-    docker compose up
+    python3 start.py
 
-once the utexas container has reached 'GAM assigned', the dec10 is ready.
-- open a web browser to 'localhost:2031/cic' for control over the robots. hit the start robots button.
-- open a web browser to 'localhost:2032' for galaxy display. 
+once the utexas container has reached 'GAM assigned', the dec10 is ready
+- open a web browser to 'localhost:2031/cic' for control over the robots. hit the start robots button
+- open a web browser to 'localhost:2032' for galaxy display. in ten or twenty seconds robots will appear
 - open a terminal and do 'telnet localhost 2030' to personally enter the game
-
-some useful command lines for cic container, and the same can easily be accomplished in docker desktop gui as well.
-
-    docker compose exec cic /bin/bash
-    tail -f /data/log1
+- to get a command line in cic container do 'docker compose exec cic /bin/bash'
+- and then to watch the nomad log do 'tail -f /data/log1'
 
 # overview
 
