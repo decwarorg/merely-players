@@ -10,8 +10,10 @@ class Brain:
 
     def __init__(self, name, braincnt, tc):
         self.name = name
-        self.tc = tc
         self.braincnt = braincnt
+        self.tc = tc
+        self.super = True if name == 'nomad' else False
+        self.listenlen = 1
         self.last_new_ship_cnt = 0
         self.cnt = 0
         self.age = 0
@@ -25,7 +27,7 @@ class Brain:
     def next(self):
         self.backbrain()
         try:
-            if self.name == 'nomad': self.nomad()
+            if self.super: self.super_()
             if self.mode == Mode.offense: self.offense()
             elif self.mode == Mode.defense: self.defense()
         except:
@@ -37,18 +39,19 @@ class Brain:
         self.age = self.cnt - self.last_new_ship_cnt
         if self.age > self.age_offense: self.mode = Mode.offense
     
-    def nomad(self):
+    def super_(self):
         if self.age <= 2: self.command_and_response('*password *mink')
         self.speak()
-        res = self.command_and_response('po a')
         self.galaxy.ships(self.command_and_response('list ships'))
-        self.galaxy.bases(self.command_and_response('list bases'))
-        self.galaxy.planets(self.command_and_response('list planets'))
+        if self.age % 2 == 0:
+            self.galaxy.bases(self.command_and_response('list bases'))
+        else:
+            self.galaxy.planets(self.command_and_response('list planets'))
         self.galaxy.write()
 
     def offense(self):
         mode = 'normal'
-        res = self.command_and_response('time')
+        # res = self.command_and_response('time')
         res = self.command_and_response('bases enemy')
         targ = self.enemybases.update(res)
         if not targ[2]:
@@ -60,7 +63,7 @@ class Brain:
             
     def defense(self):
         mode = 'normal'
-        res = self.command_and_response('time')
+        # res = self.command_and_response('time')
         res = self.command_and_response('list ships enemy')
         targ = self.enemyships.update(res)
         if not targ[2]:
@@ -91,7 +94,7 @@ class Brain:
         if tmp < .05: dv = 0; dh *= -1 # in case stuck
         elif tmp > .95: dh = 0; dv *= -1
         res = self.command_and_response(f'm r {dv} {dh}')
-        res = self.command_and_response(f'sc')
+        # res = self.command_and_response(f'sc')
 
     def listen(self, secs):
         res, tmp = [], ''
@@ -116,7 +119,7 @@ class Brain:
         try:
             for _ in range(2): self.tc.sendline(); self.tc.expect('>', timeout=10)
             self.tc.sendline(command)
-            res = self.listen(4)
+            res = self.listen(self.listenlen)
             # for rec in res:
             #     if rec: print(f'{self.cnt}|{self.age}|{rec}') # log formatted and lowered messages
             return res

@@ -14,6 +14,7 @@ def start(pop=10):
     
 def stop():
     os.system("pkill -2 -f 'robot/robot.py'")
+    time.sleep(5)
 
 if __name__ == "__main__":
     start()
