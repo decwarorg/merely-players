@@ -42,11 +42,11 @@ class Brain:
     def super_(self):
         if self.age <= 2: self.command_and_response('*password *mink')
         self.speak()
-        self.galaxy.ships(self.command_and_response('list ships'))
+        self.galaxy.ships(self.command_and_response('list ships', listenlen=2))
         if self.age % 2 == 0:
-            self.galaxy.bases(self.command_and_response('list bases'))
+            self.galaxy.bases(self.command_and_response('list bases', listenlen=2))
         else:
-            self.galaxy.planets(self.command_and_response('list planets'))
+            self.galaxy.planets(self.command_and_response('list planets', listenlen=2))
         self.galaxy.write()
 
     def offense(self):
@@ -100,7 +100,7 @@ class Brain:
         res, tmp = [], ''
         tf = time.time() + secs
         while time.time() < tf:
-            try: tmp += self.tc.read_nonblocking(3000, timeout=.2).decode('utf-8')
+            try: tmp += self.tc.read_nonblocking(secs, timeout=.2).decode('utf-8')
             except: pass
         tmp = tmp.replace('\x07', '')  # \x07 is \xhh hex for \a escape seq for ascii bell
         for rec in tmp.strip().splitlines(): 
@@ -114,12 +114,13 @@ class Brain:
             res.append(line)
         return res
 
-    def command_and_response(self, command):
+    def command_and_response(self, command, listenlen=None):
         """send a command and get the response"""
         try:
             for _ in range(2): self.tc.sendline(); self.tc.expect('>', timeout=10)
             self.tc.sendline(command)
-            res = self.listen(self.listenlen)
+            if not listenlen: listenlen = self.listenlen
+            res = self.listen(listenlen)
             # for rec in res:
             #     if rec: print(f'{self.cnt}|{self.age}|{rec}') # log formatted and lowered messages
             return res
