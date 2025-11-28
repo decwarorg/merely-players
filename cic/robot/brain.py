@@ -58,7 +58,8 @@ class Brain:
             res = self.command_and_response(f'li cl pl')
             targ = self.planets.update(res)
             mode = 'torp'
-        if targ[2] > 6: self.approach(targ)
+        if not targ[2]: self.explore()
+        elif targ[2] > 6: self.approach(targ)
         else: self.attack(targ, mode)
             
     def defense(self):
@@ -66,12 +67,14 @@ class Brain:
         # res = self.command_and_response('time')
         res = self.command_and_response('list ships enemy')
         targ = self.enemyships.update(res)
-        if not targ[2]:
-            res = self.command_and_response(f'li cl pl')
-            targ = self.planets.update(res)
-            mode = 'torp'
-        if targ[2] > 6: self.approach(targ)
+        if not targ[2]: self.explore()
+        elif targ[2] > 6: self.approach(targ)
         else: self.attack(targ, mode)
+        
+    def explore(self):
+        dv, dh = random.randint(-3, 3), random.randint(-3, 3)
+        self.command_and_response(f'm r {dv} {dh}')
+        self.command_and_response(f'sc', listenlen=3)
 
     def speak(self):
         if True:
