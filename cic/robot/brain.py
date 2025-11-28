@@ -44,9 +44,9 @@ class Brain:
         self.speak()
         self.galaxy.ships(self.command_and_response('list ships', listenlen=2))
         if self.age % 2 == 0:
-            self.galaxy.bases(self.command_and_response('list bases', listenlen=2))
+            self.galaxy.bases(self.command_and_response('list bases', listenlen=3))
         else:
-            self.galaxy.planets(self.command_and_response('list planets', listenlen=2))
+            self.galaxy.planets(self.command_and_response('list planets', listenlen=3))
         self.galaxy.write()
 
     def offense(self):
