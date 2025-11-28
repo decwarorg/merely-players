@@ -9,11 +9,10 @@ from cic.robot.planets import Planets
 class Brain:
 
     def __init__(self, name, braincnt, tc):
-        self.name = name
-        self.braincnt = braincnt
-        self.tc = tc
-        self.super = True if name == 'nomad' else False
+        self.name, self.braincnt, self.tc = name, braincnt, tc
+        self.super = True if 'cic' in name else False
         self.listenlen = 1
+        self.calmlen = 3
         self.last_new_ship_cnt = 0
         self.cnt = 0
         self.age = 0
@@ -28,6 +27,7 @@ class Brain:
         self.backbrain()
         try:
             if self.super: self.super_()
+            else: time.sleep(self.calmlen)
             if self.mode == Mode.offense: self.offense()
             elif self.mode == Mode.defense: self.defense()
         except:

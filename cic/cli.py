@@ -4,8 +4,8 @@ from cic.utils import indocker
 ipstr = 'utexas' if indocker() else '0.0.0.0'
 
 def main():
-    cli = argparse.ArgumentParser(description='robot')
-    cli.add_argument('-n', '--name', default='nomad', type=str)
+    cli = argparse.ArgumentParser(description='merely-players')
+    cli.add_argument('-n', '--name', default='player', type=str)
     cli.add_argument('-i', '--ip', default=ipstr, type=str)
     cli.add_argument('-p', '--port', default=2030, type=int)
     cli.add_argument('-u', '--ppn', default='decwar', type=str)

@@ -21,7 +21,6 @@ once the utexas container has reached 'GAM assigned', the dec10 is ready
 - open a web browser to 'localhost:2032' for galaxy display. in ten or twenty seconds robots will appear
 - open a terminal and do 'telnet localhost 2030' to personally enter the game
 - to get a command line in cic container do 'docker compose exec cic /bin/bash'
-- and then to watch the nomad log do 'tail -f /data/log1'
 
 # overview
 

@@ -8,7 +8,7 @@ def start(pop=10):
     files = glob.glob('data/log*')
     for file in files: os.remove(file)
     for id in range(1, pop+1):
-        name = f'robot{id}' if id > 2 else 'nomad'
+        name = f'robot{id}' if id > 2 else f'cic{id}'
         os.system(f'python3 -u cic/robot/robot.py -n {name} > data/log{id} &')
         time.sleep(5)
     
