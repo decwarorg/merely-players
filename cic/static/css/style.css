@@ -1,9 +1,9 @@
 /* static/css/style.css */
 
 :root {
-    --bg-color: black;
-    --main-color: coral;
-    --secondary-color: lavenderblush;
+    --bg-color: #000000;
+    --main-color: #FF8C00;
+    --secondary-color: #FF4500;
 }
 
 * {
@@ -11,8 +11,8 @@
 }
 
 body {
-	background-color: #000;
-	color: coral;
+	background-color: #000000;
+	color: #FF8C00;
 	font-size: 1.3em;
     font-family: sans-serif;
     display: grid;
