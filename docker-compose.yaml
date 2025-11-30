@@ -5,6 +5,11 @@ services:
     image: utexas
     ports:
       - "2030:2030"
+    volumes:
+      - type: bind
+        source: ../utexas/utexas23-reconstruction
+        target: /docker/utexas23-reconstruction
+    command: sh -c "msc/create-tape-utexas23-reconstruction && ./pdp10-kl ./simh/boot-from-disk.ini"
   cic:
     build: ./
     image: cic
