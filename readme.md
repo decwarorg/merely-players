@@ -12,13 +12,13 @@
 
 # push button
 
-to install, run the install.py script in the folder where the decwar folders will live. to update with the latest code append '--update'
+to install, create/copy and use install.py in the top-level folder where the docker container folders will be created
 
-    python3 install.py
+    python3 install.py [--update to pull latest code]
 
-to run, run start.py within merely-players folder. to run with an update to the latest code append '--update'
+to start the containers, use start.py in the merely-players docker container folder
 
-    python3 start.py
+    python3 start.py [--update to pull latest code]
 
 once the utexas container has reached 'GAM assigned', the dec10 is ready
 - open a web browser to 'localhost:2031/cic' for control over the robots. hit the start robots button
