@@ -12,11 +12,11 @@
 
 # push button
 
-place the install.py script in the folder where the decwar repos will live. it does run start.py for you
+to install, run the install.py script in the folder where the decwar folders will live. to update with the latest code append '--update'
 
     python3 install.py
 
-after the initial install, you can run start.py yourself. cd into merely-players and do
+to run, run start.py within merely-players folder. to run with an update to the latest code append '--update'
 
     python3 start.py
 
