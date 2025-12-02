@@ -10,6 +10,8 @@
   - [docker compose](#docker-compose)
 - [versions](#versions)
 
+for a nutshell history, please see the [decwar/history readme](https://gitlab.com/decwar/history)
+
 # push button
 
 to install, create/copy and use install.py within the top-level folder where subfolders will be created
@@ -74,7 +76,3 @@ for one thing, the system should transparently move across intel, amd, arm, clou
 for another thing, keeping all the forces separate is better for advancing and maintaining the code. stone age, python, and p5js are completely different planets, if not even different galaxies. there's effectively zero overlap between the three, and zero need to know about the details within the other two in order to work on one. someone interested in the original fortran and assembly language can put all their effort into the utexas repo. another person interested in visual displays can put all their effort into the galaxy repo.
 
 and there's actually some simplification. in the 2000s getting new software meant download installer, install, run. now it can be as simple as download container, run. that's the ideal to work towards.
-
-# versions
-
-- v1.0 20251109
