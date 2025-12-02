@@ -9,21 +9,21 @@ import argparse
 from cic.utils import pathroot, latest_tag
 
 def main(args):
-    # prep merely-players folder
+    
     os.chdir(pathroot())
     if args.reset: reset(args)
-    # prep utexas folder
+
     os.chdir(pathroot() + '/..')
     if not os.path.exists('utexas'): os.system('git clone https://gitlab.com/decwar/utexas.git')
     os.chdir('utexas')
     if args.reset: reset(args)
     if not os.path.exists('docker/dsk'): os.system('unzip docker/dsk-20251103.zip && mv dsk-20251103 docker/dsk')
-    # prep galaxy folder
+
     os.chdir(pathroot() + '/..')
     if not os.path.exists('galaxy'): os.system('git clone https://gitlab.com/decwar/galaxy.git')
     os.chdir('galaxy')
     if args.reset: reset(args)
-    # docker compose up for the complete system
+
     os.chdir(pathroot())
     if not args.norun: os.system(f'docker compose up --build --force-recreate utexas cic galaxy')
     
