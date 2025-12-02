@@ -12,13 +12,14 @@
 
 # push button
 
-to install, create/copy and use install.py in the top-level folder where the docker container folders will be created
+to install, create/copy and use install.py within the top-level folder where subfolders will be created
 
-    python3 install.py [--update to pull latest code]
+    python3 install.py [--latest for newest release]
 
-to start the containers, use start.py in the merely-players docker container folder
+to start the containers, use start.py in the merely-players subfolder
 
-    python3 start.py [--update to pull latest code]
+    cd merely-players
+    python3 start.py [--latest for newest release]
 
 once the utexas container has reached 'GAM assigned', the dec10 is ready
 - open a web browser to 'localhost:2031/cic' for control over the robots. hit the start robots button
