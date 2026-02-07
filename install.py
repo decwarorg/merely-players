@@ -12,7 +12,7 @@ import os
 import argparse
 
 def main(args):
-    if not os.path.exists('merely-players'): os.system('git clone https://gitlab.com/decwar/merely-players.git')
+    if not os.path.exists('merely-players'): os.system('git clone https://github.com/decwarorg/merely-players.git')
     os.chdir('merely-players')
     if args.latest: os.system('python3 start.py --latest --norun')
     else: os.system('python3 start.py --norun')

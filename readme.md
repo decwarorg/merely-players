@@ -10,7 +10,7 @@
   - [docker compose](#docker-compose)
 - [versions](#versions)
 
-for a nutshell history, please see the [decwar/history readme](https://gitlab.com/decwar/history)
+for a nutshell history, please see the [decwar/history readme](https://github.com/decwarorg/history)
 
 # push button
 
@@ -63,9 +63,9 @@ this is a python project and it's used wherever possible. the project should wor
 
 the objective here is a simple push button 'turn key and go' way to run the primordial utexas decwar and have as much fun as possible. that means a pdp10-kl simulator running all of the original sofware from tape images, and able to build decwar on the fly at every boot with modifications to the original fortran and mac10 flowing in smoothly. to really have fun there have to be other players. the more the better. robots have to be telnetting in and playing. that's done with python. and then, even more fun, is a graphical display of the whole galaxy. ideally with sounds as well. that's done via webbrowser using p5js javascript. here's where things are at the moment.
 
-    https://gitlab.com/decwar/utexas - pure stone age
-    https://gitlab.com/decwar/merely-players - pure python robots and 'cic' api
-    https://gitlab.com/decwar/galaxy - pure p5js display calling 'cic' api
+    https://github.com/decwarorg/utexas - pure stone age
+    https://github.com/decwarorg/merely-players - pure python robots and 'cic' api
+    https://github.com/decwarorg/galaxy - pure p5js display calling 'cic' api
 
 how to unify these three forces? doco. [docker compose](https://docs.docker.com/compose/)
 

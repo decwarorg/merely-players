@@ -14,13 +14,13 @@ def main(args):
     if args.reset: reset(args)
 
     os.chdir(pathroot() + '/..')
-    if not os.path.exists('utexas'): os.system('git clone https://gitlab.com/decwar/utexas.git')
+    if not os.path.exists('utexas'): os.system('git clone https://github.com/decwarorg/utexas.git')
     os.chdir('utexas')
     if args.reset: reset(args)
     if not os.path.exists('docker/dsk'): os.system('unzip docker/dsk-20251103.zip && mv dsk-20251103 docker/dsk')
 
     os.chdir(pathroot() + '/..')
-    if not os.path.exists('galaxy'): os.system('git clone https://gitlab.com/decwar/galaxy.git')
+    if not os.path.exists('galaxy'): os.system('git clone https://github.com/decwarorg/galaxy.git')
     os.chdir('galaxy')
     if args.reset: reset(args)
 
