@@ -9,6 +9,9 @@ services:
       - type: bind
         source: ../utexas/utexas23-reconstruction
         target: /docker/utexas23-reconstruction
+      - type: bind
+        source: ../utexas/msc
+        target: /docker/msc
     command: sh -c "msc/create-tape-utexas23-reconstruction && ./pdp10-kl ./simh/boot-from-disk.ini"
   cic:
     build: ./
