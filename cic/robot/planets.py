@@ -6,6 +6,7 @@ class Planets:
         pass
     
     def update(self, raw):
+        if 'No' in raw or '@ @' not in raw[3]: return [37, 37, 999]
         rec = raw[3]
         tmp = rec.split('@ @')
         tmp1, tmp2 = tmp[1][:5], tmp[1][5:]

@@ -26,5 +26,5 @@ class EnemyBases:
         return self.vhds[0]
         
     def clear(self):
-        self.vhds = [[None, None, None]]
+        self.vhds = [[37, 37, 999]]
     
