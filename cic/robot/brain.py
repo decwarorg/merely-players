@@ -17,7 +17,7 @@ class Brain:
         self.cnt = 0
         self.age = 0
         self.mode = Mode.defense
-        self.age_offense = 25
+        self.age_offense = 20
         self.enemybases = EnemyBases()
         self.enemyships = EnemyShips()
         self.galaxy = Galaxy()
@@ -50,17 +50,16 @@ class Brain:
         self.galaxy.write()
 
     def offense(self):
-        mode = 'normal'
-        # res = self.command_and_response('time')
+        res = self.command_and_response(f'li cl pl')
+        targp = self.planets.update(res)
         res = self.command_and_response('bases enemy')
-        targ = self.enemybases.update(res)
-        if not targ[2]:
-            res = self.command_and_response(f'li cl pl')
-            targ = self.planets.update(res)
-            mode = 'torp'
-        if not targ[2]: self.explore()
-        elif targ[2] > 6: self.approach(targ)
-        else: self.attack(targ, mode)
+        targb = self.enemybases.update(res)
+        target = targb; mode = 'base'
+        if targp[2] < targb[2]:
+            target = targp; mode = 'planet'
+        if target[2] == 999: self.explore()
+        elif target[2] > 6: self.approach(target)
+        else: self.attack(target, mode)
             
     def defense(self):
         mode = 'normal'
@@ -84,8 +83,9 @@ class Brain:
         res = self.command_and_response(f'tell all; {msg}')
 
     def attack(self, targ, mode):
-        if mode == 'torp':
-            res = self.command_and_response(f'to r 3 {targ[0]} {targ[1]}')
+        if mode == 'planet':
+            res = self.command_and_response(f'ph r {targ[0]} {targ[1]}')
+            res = self.command_and_response(f'to r 1 {targ[0]} {targ[1]}')
         else:
             res = self.command_and_response(f'ph r {targ[0]} {targ[1]}')
             if random.uniform(0, 1) > .5: res = self.command_and_response(f'to r 2 {targ[0]} {targ[1]}')
