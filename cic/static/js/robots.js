@@ -5,6 +5,7 @@ export class RobotsForm {
   constructor() {
     this.robotsCard = document.querySelector(".robots-card");
     this.form = this.robotsCard.querySelector(".robots-form");
+    this.ipInput = this.form.querySelector("input[name='ipstr']");
     this.startButton = this.form.querySelector("button[data-action='start']");
     this.startButton.addEventListener("click", this.handleStartClick.bind(this));
     this.stopButton = this.form.querySelector("button[data-action='stop']");
@@ -14,7 +15,9 @@ export class RobotsForm {
   handleStartClick(event) {
     event.preventDefault();
     this.showResponse("starting")
-    getData("/robots/start", this.showResponse);
+    const ipstr = this.ipInput.value.trim();
+    const query = ipstr ? `?${new URLSearchParams({ ipstr })}` : "";
+    getData(`/robots/start${query}`, this.showResponse);
   }
   
   handleStopClick(event) {
